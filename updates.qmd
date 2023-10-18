@@ -41,7 +41,6 @@ Mapping permeability to time-varying CO2 concentration governed by two-phase flo
 
 ## 10/4/23
 
-
 | - Trained for 300/500 epochs on the GPU
 |   - The model seems to have stop learning around ~150 epochs
 |   - Objective is $\frac{norm(y - fno(x))}{norm(y)}$
@@ -54,9 +53,9 @@ Mapping permeability to time-varying CO2 concentration governed by two-phase flo
 
 #### Evaluation
 ::: {layout-ncol=2}
-![](assets/300_eval.png)
+![](assets/10.4.23/300_eval.png)
 
-![](assets/300_loss.png)
+![](assets/10.4.23/300_loss.png)
 :::
 
 ## 10/13/23
@@ -78,4 +77,28 @@ Mapping permeability to time-varying CO2 concentration governed by two-phase flo
 
 #### Forward Pass DFNO on a 2x2 using CPU
 
-![](assets/85_DFNO.png)
+![](assets/10.13.23/85_DFNO.png)
+
+## 10/18/23
+
+| - Added Operators and AD rules for gradient
+| - Trained DFNO for 2 epochs
+
+| **Currently working on**
+|   - Code Cleanup
+|   - Distributed IO
+|   - GPU support
+
+#### Trained DFNO on a 2x2 using CPU for 2 epochs
+
+::: {layout-ncol=2}
+![Serial](assets/10.18.23/2_eval.png)
+
+![](assets/10.18.23/2_loss.png)
+:::
+
+::: {layout-ncol=2}
+![Parallel](assets/10.18.23/dfno_2_eval.png)
+
+![](assets/10.18.23/dfno_2_loss.png)
+:::

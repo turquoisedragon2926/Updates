@@ -124,10 +124,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="assets/300_eval.png" class="img-fluid"></p>
+<p><img src="assets/10.4.23/300_eval.png" class="img-fluid"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="assets/300_loss.png" class="img-fluid"></p>
+<p><img src="assets/10.4.23/300_loss.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
@@ -149,7 +149,49 @@ ul.task-list li input[type="checkbox"] {
 &nbsp;- Mathias has suggested to open an issue with <code>OMEinsum.jl</code> Devs</p>
 <section id="forward-pass-dfno-on-a-2x2-using-cpu" class="level4">
 <h4 class="anchored" data-anchor-id="forward-pass-dfno-on-a-2x2-using-cpu">Forward Pass DFNO on a 2x2 using CPU</h4>
-<p><img src="assets/85_DFNO.png" class="img-fluid"></p>
+<p><img src="assets/10.13.23/85_DFNO.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">10/18/23</h2>
+<p>- Added Operators and AD rules for gradient<br>
+- Trained DFNO for 2 epochs</p>
+<p><strong>Currently working on</strong><br>
+&nbsp;&nbsp;- Code Cleanup<br>
+&nbsp;&nbsp;- Distributed IO<br>
+&nbsp;&nbsp;- GPU support</p>
+<section id="trained-dfno-on-a-2x2-using-cpu-for-2-epochs" class="level4">
+<h4 class="anchored" data-anchor-id="trained-dfno-on-a-2x2-using-cpu-for-2-epochs">Trained DFNO on a 2x2 using CPU for 2 epochs</h4>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/10.18.23/2_eval.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Serial</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="assets/10.18.23/2_loss.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/10.18.23/dfno_2_eval.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Parallel</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="assets/10.18.23/dfno_2_loss.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
 </section>
 </section>
 
