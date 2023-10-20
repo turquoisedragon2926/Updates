@@ -89,16 +89,16 @@ Mapping permeability to time-varying CO2 concentration governed by two-phase flo
 |   - Distributed IO
 |   - GPU support
 
-#### Trained DFNO on a 2x2 using CPU for 2 epochs
+#### Trained DFNO on a 2x2 using CPU for 1 epoch
 
 ::: {layout-ncol=2}
-![Serial](assets/10.18.23/2_eval.png)
+![Serial](assets/10.18.23/2_eval.png){width=50%}
 
-![](assets/10.18.23/2_loss.png)
+![](assets/10.18.23/2_loss.png){width=19%}
 :::
 
 ::: {layout-ncol=2}
-![Parallel](assets/10.18.23/dfno_2_eval.png)
+![Parallel](assets/10.18.23/dfno_2_eval.png){width=50%}
 
-![](assets/10.18.23/dfno_2_loss.png)
+![](assets/10.18.23/dfno_2_loss.png){width=19%}
 :::
