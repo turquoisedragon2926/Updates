@@ -3,7 +3,7 @@ title: "FNOs for Surrogate Modeling"
 editor: visual
 format:
   html:
-    code-fold: false
+    code-fold: true
     page-layout: full
 # jupyter: python3
 ---
@@ -102,3 +102,63 @@ Mapping permeability to time-varying CO2 concentration governed by two-phase flo
 
 ![](assets/10.18.23/dfno_2_loss.png){width=19%}
 :::
+
+## 10/30/23
+
+| - Added Hacks for GPU Training of DFNO
+| - Trained DFNO on 4 workers using GPU for 200 epochs
+| - Ported 2D to 3D FNO
+| - Checkpoints for training
+
+| **Currently working on**
+|   - Gradient Tests
+|   - Running on Perlmutter
+|   - Scaling Tests on 3D for ML4Seismic
+
+#### Trained 2D DFNO on a 2x2 using GPU for 200 epochs
+
+::: {layout-ncol=2}
+![](assets/10.30.23/ep%3D200_p%3D4_gpu%3D1_eval.png){width=50%}
+
+![](assets/10.30.23/ep%3D200_p%3D4_gpu%3D1_loss.png){width=50%}
+:::
+
+#### Modular Codebase (~35 lines to train custom 2D or 3D DFNO)
+
+```julia
+using Pkg
+Pkg.activate("./")
+
+include("src/models/DFNO_2D/DFNO_2D.jl")
+
+using .DFNO_2D
+using MPI
+
+MPI.Init()
+
+partition = [1,2,2,1]
+
+comm = MPI.COMM_WORLD
+@assert MPI.Comm_size(comm) == prod(partition)
+
+modelConfig = DFNO_2D.ModelConfig(nx=64, ny=64, nt=51, nblocks=4, partition=partition)
+dataConfig = DFNO_2D.DataConfig(modelConfig=modelConfig)
+
+model = DFNO_2D.Model(modelConfig)
+θ = DFNO_2D.initModel(model)
+
+x_train, y_train, x_valid, y_valid = DFNO_2D.loadDistData(dataConfig)
+
+trainConfig = DFNO_2D.TrainConfig(
+    epochs=200,
+    x_train=x_train,
+    y_train=y_train,
+    x_valid=x_valid,
+    y_valid=y_valid,
+)
+
+DFNO_2D.train!(trainConfig, model, θ)
+
+MPI.Finalize()
+
+```
